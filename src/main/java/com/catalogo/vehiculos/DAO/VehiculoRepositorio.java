@@ -16,6 +16,8 @@ public interface VehiculoRepositorio extends JpaRepository<Vehiculo, Long> {
 	
 public Optional< List <Vehiculo>> findAllByTipo(String tipo);
 
+public Optional <List<Vehiculo>> findAllByModelo (Integer modelo);
+
 
 }
 

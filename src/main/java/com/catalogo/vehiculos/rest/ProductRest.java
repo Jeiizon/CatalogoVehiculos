@@ -17,87 +17,86 @@ import org.springframework.web.bind.annotation.RestController;
 import com.catalogo.vehiculos.DAO.VehiculoRepositorio;
 import com.catalogo.vehiculos.entidades.Vehiculo;
 
-
-
 @RestController
 @RequestMapping("vehiculos")
 public class ProductRest {
-	
+
 	@Autowired
 	private VehiculoRepositorio vehiculoDAO;
 
-	
-	@GetMapping	 // (GET)
-	public ResponseEntity<List<Vehiculo>>getVehiculo(){
+	@GetMapping // (GET)
+	public ResponseEntity<List<Vehiculo>> getVehiculo() {
 		List<Vehiculo> vehiculos = vehiculoDAO.findAll();
 		return ResponseEntity.ok(vehiculos);
 	}
-	
-	
-	@RequestMapping(value="{vehiculoId}") // (GET)
-	public ResponseEntity<Vehiculo>obtenerVehiculoId(@PathVariable("vehiculoId")long  vehiculoId){
-		Optional<Vehiculo> optionalVehiculo = vehiculoDAO.findById(vehiculoId);  
-		if(optionalVehiculo.isPresent()) {
+
+	@RequestMapping(value = "{vehiculoId}") // (GET)
+	public ResponseEntity<Vehiculo> obtenerVehiculoId(@PathVariable("vehiculoId") Long vehiculoId) {
+		Optional<Vehiculo> optionalVehiculo = vehiculoDAO.findById(vehiculoId);
+		if (optionalVehiculo.isPresent()) {
 			return ResponseEntity.ok(optionalVehiculo.get());
-			
-		}
-		else {
+
+		} else {
 			return ResponseEntity.noContent().build();
 		}
 	}
+
 	@PostMapping // (POST)
-	public ResponseEntity<Vehiculo> crearVehiculo(@RequestBody Vehiculo vehiculo){
+	public ResponseEntity<Vehiculo> crearVehiculo(@RequestBody Vehiculo vehiculo) {
 		Vehiculo nuevoVehiculo = vehiculoDAO.save(vehiculo);
 		return ResponseEntity.ok(nuevoVehiculo);
-		
+
 	}
-	
-	@DeleteMapping(value= "{vehiculoId}") // (DELETE)
-	public ResponseEntity<Vehiculo> borrarVehiculo(@PathVariable("vehiculoId")long  vehiculoId){
+
+	@DeleteMapping(value = "{vehiculoId}") // (DELETE)
+	public ResponseEntity<Vehiculo> borrarVehiculo(@PathVariable("vehiculoId") Long vehiculoId) {
 		vehiculoDAO.deleteById(vehiculoId);
 		return ResponseEntity.ok(null);
-		
+
 	}
-	
+
 	@PutMapping // (PUT)
-	public ResponseEntity<Vehiculo> actualizarVehiculo(@RequestBody Vehiculo vehiculo){
-		Optional<Vehiculo> optionalVehiculo = vehiculoDAO.findById(vehiculo.getId());  
-		if(optionalVehiculo.isPresent()) {
+	public ResponseEntity<Vehiculo> actualizarVehiculo(@RequestBody Vehiculo vehiculo) {
+		Optional<Vehiculo> optionalVehiculo = vehiculoDAO.findById(vehiculo.getId());
+		if (optionalVehiculo.isPresent()) {
 			Vehiculo actualizarVehiculo = optionalVehiculo.get();
 			actualizarVehiculo.setMarca(vehiculo.getMarca());
-					actualizarVehiculo.setDescripcion	(vehiculo.getDescripcion());
-					actualizarVehiculo.setTipo(vehiculo.getTipo());
-					actualizarVehiculo.setModelo(vehiculo.getModelo());
-					actualizarVehiculo.setAltura(vehiculo.getAltura());
-					actualizarVehiculo.setPeso(vehiculo.getPeso());
-					actualizarVehiculo.setCombustible(vehiculo.getCombustible());
-					actualizarVehiculo.setVelocidad(vehiculo.getVelocidad());
+			actualizarVehiculo.setDescripcion(vehiculo.getDescripcion());
+			actualizarVehiculo.setTipo(vehiculo.getTipo());
+			actualizarVehiculo.setModelo(vehiculo.getModelo());
+			actualizarVehiculo.setAltura(vehiculo.getAltura());
+			actualizarVehiculo.setPeso(vehiculo.getPeso());
+			actualizarVehiculo.setCombustible(vehiculo.getCombustible());
+			actualizarVehiculo.setVelocidad(vehiculo.getVelocidad());
 			vehiculoDAO.save(actualizarVehiculo);
 			return ResponseEntity.ok(actualizarVehiculo);
-			
-		}
-		else {
+
+		} else {
 			return ResponseEntity.notFound().build();
 		}
 	}
-	
-	
-	
-	@RequestMapping(value="Tipo/{vehiculoTipo}") // (GET)
-	public ResponseEntity<List<Vehiculo>> obtenerVehiculoTipo(@PathVariable("vehiculoTipo") String vehiculoTipo){
-		Optional<List<Vehiculo>> optionalVehiculo = vehiculoDAO.findAllByTipo(vehiculoTipo); 
-		if(optionalVehiculo.isPresent()) {
+
+	@RequestMapping(value = "Tipo/{vehiculoTipo}") // (GET)
+	public ResponseEntity<List<Vehiculo>> obtenerVehiculoTipo(@PathVariable("vehiculoTipo") String vehiculoTipo) {
+		Optional<List<Vehiculo>> optionalVehiculo = vehiculoDAO.findAllByTipo(vehiculoTipo);
+		if (optionalVehiculo.isPresent()) {
 			return ResponseEntity.ok(optionalVehiculo.get());
-			
-		}
-		else {
+
+		} else {
 			return ResponseEntity.noContent().build();
 		}
-		
-		
+
 	}
-	
- 
+
+	@RequestMapping(value = "Modelo/{vehiculoModelo}") // (GET)
+	public ResponseEntity<List<Vehiculo>> obtenerVehiculoTipo(@PathVariable("vehiculoModelo") Integer vehiculoModelo) {
+		Optional<List<Vehiculo>> optionalVehiculo = vehiculoDAO.findAllByModelo(vehiculoModelo);
+		if (optionalVehiculo.isPresent()) {
+			return ResponseEntity.ok(optionalVehiculo.get());
+
+		} else {
+			return ResponseEntity.noContent().build();
+		}
+	}
 
 }
- 

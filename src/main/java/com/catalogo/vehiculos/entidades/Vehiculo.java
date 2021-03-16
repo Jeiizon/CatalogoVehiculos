@@ -24,8 +24,11 @@ public class Vehiculo {
 	@Column(name="marca", nullable = false, length = 20)
 	private String marca;
 	
-	@Column(name="modelo", nullable = false, length = 4)
-	private byte modelo;
+	@Column(name="tipo", nullable = false, length = 20)
+	private String tipo;
+	
+	@Column(name="modelo", nullable = false, length =200)
+	private int modelo;
 	
 	
 	
@@ -47,12 +50,20 @@ public class Vehiculo {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public byte getModelo() {
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public int getModelo() {
 		return modelo;
 	}
-	public void setModelo(byte modelo) {
+	public void setModelo(int modelo) {
 		this.modelo = modelo;
 	}
+
+	
 	
 	
 }

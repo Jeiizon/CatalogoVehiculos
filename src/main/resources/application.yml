@@ -6,7 +6,7 @@ spring:
       ddl-auto: update    properties:      hibernate: 
         dialect: org.hibernate.dialect.MySQL5Dialect  datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/vehiculos?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/BDVEHICULOS?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
     username: root
     password: 
     

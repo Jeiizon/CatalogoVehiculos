@@ -34,7 +34,7 @@ public class ProductRest {
 	
 	
 	@RequestMapping(value="{vehiculoId}") // (GET)
-	public ResponseEntity<Vehiculo>getVehiculoById(@PathVariable("vehiculoId")long  vehiculoId){
+	public ResponseEntity<Vehiculo>obtenerVehiculoId(@PathVariable("vehiculoId")long  vehiculoId){
 		Optional<Vehiculo> optionalVehiculo = vehiculoDAO.findById(vehiculoId);  
 		if(optionalVehiculo.isPresent()) {
 			return ResponseEntity.ok(optionalVehiculo.get());
@@ -64,6 +64,9 @@ public class ProductRest {
 		if(optionalVehiculo.isPresent()) {
 			Vehiculo actualizarVehiculo = optionalVehiculo.get();
 					actualizarVehiculo.setDescripcion	(vehiculo.getDescripcion());
+					actualizarVehiculo.setMarca(vehiculo.getMarca());
+					actualizarVehiculo.setTipo(vehiculo.getTipo());
+					actualizarVehiculo.setModelo(vehiculo.getModelo());
 			vehiculoDAO.save(actualizarVehiculo);
 			return ResponseEntity.ok(actualizarVehiculo);
 			

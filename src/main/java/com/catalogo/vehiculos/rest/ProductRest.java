@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.catalogo.vehiculos.DAO.VehiculoRepositorio;
 import com.catalogo.vehiculos.entidades.Vehiculo;
+
 
 
 @RestController
@@ -24,7 +25,7 @@ public class ProductRest {
 	
 	@Autowired
 	private VehiculoRepositorio vehiculoDAO;
-	
+
 	
 	@GetMapping	 // (GET)
 	public ResponseEntity<List<Vehiculo>>getVehiculo(){
@@ -79,6 +80,23 @@ public class ProductRest {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	
+	
+	
+	@RequestMapping(value="Tipo/{vehiculoTipo}") // (GET)
+	public ResponseEntity<List<Vehiculo>> obtenerVehiculoTipo(@PathVariable("vehiculoTipo") String vehiculoTipo){
+		Optional<List<Vehiculo>> optionalVehiculo = vehiculoDAO.findAllByTipo(vehiculoTipo); 
+		if(optionalVehiculo.isPresent()) {
+			return ResponseEntity.ok(optionalVehiculo.get());
+			
+		}
+		else {
+			return ResponseEntity.noContent().build();
+		}
+		
+		
+	}
+	
  
 
 }

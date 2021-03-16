@@ -18,11 +18,11 @@ public class Vehiculo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="descripcion", nullable = false, length = 30)
-	private String descripcion;
-	
 	@Column(name="marca", nullable = false, length = 20)
 	private String marca;
+	
+	@Column(name="descripcion", nullable = false, length = 30)
+	private String descripcion;
 	
 	@Column(name="tipo", nullable = false, length = 20)
 	private String tipo;
@@ -30,6 +30,17 @@ public class Vehiculo {
 	@Column(name="modelo", nullable = false, length =200)
 	private int modelo;
 	
+	@Column(name="altura", nullable = false, length =200)
+	private int altura;
+	
+	@Column(name="peso", nullable = false, length =200)
+	private int peso;
+	
+	@Column(name="combustible", nullable = false, length =50)
+	private String combustible;
+	
+	@Column(name="velocidad", nullable = false, length =200)
+	private int velocidad;
 	
 	
 	public Long getId() {
@@ -61,6 +72,30 @@ public class Vehiculo {
 	}
 	public void setModelo(int modelo) {
 		this.modelo = modelo;
+	}
+	public int getAltura() {
+		return altura;
+	}
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+	public int getPeso() {
+		return peso;
+	}
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+	public String getCombustible() {
+		return combustible;
+	}
+	public void setCombustible(String combustible) {
+		this.combustible = combustible;
+	}
+	public int getVelocidad() {
+		return velocidad;
+	}
+	public void setVelocidad(int velocidad) {
+		this.velocidad = velocidad;
 	}
 
 	

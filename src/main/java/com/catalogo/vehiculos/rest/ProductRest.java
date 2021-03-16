@@ -63,10 +63,14 @@ public class ProductRest {
 		Optional<Vehiculo> optionalVehiculo = vehiculoDAO.findById(vehiculo.getId());  
 		if(optionalVehiculo.isPresent()) {
 			Vehiculo actualizarVehiculo = optionalVehiculo.get();
+			actualizarVehiculo.setMarca(vehiculo.getMarca());
 					actualizarVehiculo.setDescripcion	(vehiculo.getDescripcion());
-					actualizarVehiculo.setMarca(vehiculo.getMarca());
 					actualizarVehiculo.setTipo(vehiculo.getTipo());
 					actualizarVehiculo.setModelo(vehiculo.getModelo());
+					actualizarVehiculo.setAltura(vehiculo.getAltura());
+					actualizarVehiculo.setPeso(vehiculo.getPeso());
+					actualizarVehiculo.setCombustible(vehiculo.getCombustible());
+					actualizarVehiculo.setVelocidad(vehiculo.getVelocidad());
 			vehiculoDAO.save(actualizarVehiculo);
 			return ResponseEntity.ok(actualizarVehiculo);
 			

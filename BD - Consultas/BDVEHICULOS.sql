@@ -20,7 +20,10 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_vehiculos`
 --
-
+drop database if exists bdvehiculos;
+create database bdvehiculos;
+use bdvehiculos;
+--
 -- --------------------------------------------------------
 
 --

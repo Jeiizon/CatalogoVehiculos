@@ -1,4 +1,4 @@
-# CATALOGO DE VEHICULOS API
+# CATALOGO DE VEHICULOS - API
 
 _Consulte listado de vehiculos en la base de datos_
 
@@ -8,19 +8,27 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 ### Instalación 🔧
 
-_Descarga el proyecto, en la raiz encontrarás una carpeta llamada BD - Consultas, aquí se encuentra la base de datos y las consultas en POSTMAN con los métodos solicitados._
+_Descarga el proyecto, en la raiz encontrarás una carpeta llamada "BD - Consultas", aquí se encuentra la base de datos y las consultas en POSTMAN con los métodos solicitados._
 
-_Importante antes de ejecutar el proyecto, modificar user y password de MYSQL en archivo application.yml ubicado en Vehiculos/src/main/resources/_
+_Inicialmente, debe ejecutar la base de datos_
+
+_Posteriormente configurar user y password de MYSQL en archivo application.yml ubicado en "Vehiculos/src/main/resources/"_
 
 ```
 username: 
 password: 
 ```
 
-_Posteriormente ya puede ejecutar  el proyecto. Puede ejecutar por consola con el siguiente comando_
+_Posteriormente debe ejecutar  el proyecto. Puede hacerlo por consola con el siguiente comando_
 
 ```
 ./gradlew bootRun
+```
+
+_Para realizar pruebas de peticiones a través de POSTMAN, puede importar el carhivo "VehiculosAPI.postman_collection" ubicado en la siguiente carpeta_
+
+```
+BD - Consultas/
 ```
 
 ## Despliegue 📦
@@ -39,7 +47,7 @@ _Las siguientes herramientas_
 
 ## Versionado 📌
 
-Utilicé [GitHub](https://github.com/)
+[GitHub](https://github.com/)
 ## Autor ✒️
 
 * **Jeison Andrés Soler** - *Trabajo Inicial* 

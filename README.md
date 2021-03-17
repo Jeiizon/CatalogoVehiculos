@@ -8,9 +8,9 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 ### Instalación 🔧
 
-_Descarga el proyecto, en la raiz encontrarás una carpeta llamada BD - Consultas, aquí se encuentra la base de datos y las consultas en POSTAM con los métodos solicitados._
+_Descarga el proyecto, en la raiz encontrarás una carpeta llamada BD - Consultas, aquí se encuentra la base de datos y las consultas en POSTMAN con los métodos solicitados._
 
-_Importante antes de ejecutar el proyecto, modificar user y password de MYSQL_
+_Importante antes de ejecutar el proyecto, modificar user y password de MYSQL en archivo application.yml ubicado en Vehiculos/src/main/resources/_
 
 ```
 username: 
@@ -26,7 +26,7 @@ _Posteriormente ya puede ejecutar  el proyecto. Puede ejecutar por consola con e
 ## Despliegue 📦
 
 _Dentro del código, en la clase Vehiculo.java vas a encontrar codificación que se encarga de crear la tabla vehiculos en la base de datos._
-_Esto lo hice para reducir la complejidad de la configuración del ambiente_
+_Esto lo hice para reducir la complejidad de la configuración del ambiente._
 
 ## Construido con 🛠️
 
